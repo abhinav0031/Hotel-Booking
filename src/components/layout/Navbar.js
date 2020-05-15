@@ -7,8 +7,9 @@ export const Navbar = () => {
         <nav class='teal'>
           <div class='container'>
             <div class='nav-wrapper'>
+              <i class='fas fa-hotel'></i>
               <a href='#home' class='brand-logo'>
-                Travelville
+                HotelBooker
               </a>
               <a href='#' data-activates='mobile-nav' class='button-collapse'>
                 <i class='material-icons'>menu</i>

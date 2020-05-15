@@ -46,7 +46,7 @@ export const Home = () => {
               alt=''
             />
             <div class='caption right-align'>
-              <h2>Group Individual Getaways</h2>
+              <h2>Plan Group Or Individual Vacations</h2>
               <h5 class='light grey-text text-lighten-3 hide-on-small-only'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
                 non illo earum cumque id est!
@@ -70,7 +70,7 @@ export const Home = () => {
               <div class='input-field'>
                 <input
                   class='white grey-text autocomplete'
-                  placeholder='Aruba, Cancun, etc...'
+                  placeholder='Taj, The oberoi, etc...'
                   type='text'
                   id='autocomplete-input'
                 />
@@ -127,7 +127,7 @@ export const Home = () => {
               <div class='card'>
                 <div class='card-image'>
                   <img src={require('./img/resort1.jpg')} alt='' />
-                  <span class='card-title'>Cancun, Mexico</span>
+                  <span class='card-title'>Goa</span>
                 </div>
                 <div class='card-content'>
                   <p>
@@ -142,7 +142,7 @@ export const Home = () => {
               <div class='card'>
                 <div class='card-image'>
                   <img src={require('./img/resort2.jpg')} alt='' />
-                  <span class='card-title'>The Bahamas</span>
+                  <span class='card-title'>Mumbai</span>
                 </div>
                 <div class='card-content'>
                   <p>
@@ -157,7 +157,7 @@ export const Home = () => {
               <div class='card'>
                 <div class='card-image'>
                   <img src={require('./img/resort3.jpg')} alt='' />
-                  <span class='card-title'>Nova Scotia</span>
+                  <span class='card-title'>Manali</span>
                 </div>
                 <div class='card-content'>
                   <p>
@@ -183,7 +183,7 @@ export const Home = () => {
         <div class='container'>
           <div class='row'>
             <div class='col s12'>
-              <h4>Follow Travelville</h4>
+              <h4>Follow Hotel-Booker</h4>
               <p>Follow us on social media for special offers</p>
               <a href='www.facebook.com' target='_blank' class='white-text'>
                 <i class='fab fa-facebook fa-4x'></i>
@@ -322,14 +322,14 @@ export const Home = () => {
                 <li class='collection-header'>
                   <h4>Location</h4>
                 </li>
-                <li class='collection-item'>Travelville Agency</li>
-                <li class='collection-item'>555 Beach rd, Suite 33</li>
-                <li class='collection-item'>Miami FL, 55555</li>
+                <li class='collection-item'>Hotel-Booker</li>
+                <li class='collection-item'>sector 24,Chandigarh</li>
+                <li class='collection-item'>street No.31</li>
               </ul>
             </div>
             <div class='col s12 m6'>
               <div class='card-panel grey lighten-3'>
-                <h5>Please fill out this form</h5>
+                <h5>Have any questions ask here!!</h5>
                 <div class='input-field'>
                   <input type='text' placeholder='Name' id='name' />
                   <label for='name'>Name</label>
@@ -345,7 +345,7 @@ export const Home = () => {
                 <div class='input-field'>
                   <textarea
                     class='materialize-textarea'
-                    placeholder='Enter Message'
+                    placeholder='Question/problem'
                     id='message'
                   ></textarea>
                   <label for='message'>Message</label>
@@ -358,7 +358,7 @@ export const Home = () => {
       </section>
 
       <footer class='section teal darken-2 white-text center'>
-        <p class='flow-text'>Travelville &copy; 2020</p>
+        <p class='flow-text'>HotelBooker &copy; 2020</p>
       </footer>
     </Fragment>
   );
