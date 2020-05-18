@@ -9,7 +9,7 @@ export const Navbar = () => {
             <div class='nav-wrapper'>
               <i class='fas fa-hotel'></i>
               <a href='#home' class='brand-logo'>
-                HotelBooker
+                Globetrotter
               </a>
               <a href='#' data-activates='mobile-nav' class='button-collapse'>
                 <i class='material-icons'>menu</i>

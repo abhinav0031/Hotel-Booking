@@ -91,7 +91,7 @@ router.post('/register',(req,res,next)=>{
                     person.save().then(result=>{
                         console.log(result);
                         res.status(200).json({
-                            message:"post operation successful",
+                            message:"new user Added sucessfully",
                             newUser: result
                         })
                     }).catch(err=>{
