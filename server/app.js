@@ -21,12 +21,9 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json({extended:false}));
 //// cors access
 app.use((req,res,next)=>{    
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Header","*");
-    if(req.method === 'OPTIONS'){
-        res.header('Access-Control-Allow-Method','GET,POST,DELETE,PATCH,PUT');
-        return res.status(200).json({});
-    }
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 })
 
