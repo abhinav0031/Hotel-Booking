@@ -32,7 +32,7 @@ export default class Register extends Component {
     return (
       <Fragment>
         <section class='section-signup iris transparent z-depth-5'>
-          <div class='container '>
+          <div class='container regiss'>
             <div class='row'>
               <div class='col s12 m6'>
                 <h4>Make Account for free</h4>
