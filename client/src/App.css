@@ -1,3 +1,29 @@
 .fa {
   color: teal;
 }
+.iris {
+  background-image: url('../src/components/auth/images/img1.jpg');
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+}
+
+.loginbody {
+  background-image: url('../src/components/auth/images/img1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.login {
+  margin-top: 100px;
+}
+.login .card {
+  background: rgba(0, 0, 0, 0.6);
+}
+.login .label {
+  font-size: 16px;
+  color: #ccc;
+}
+.login .input {
+  font-size: 20px;
+}

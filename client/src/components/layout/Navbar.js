@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export const Navbar = () => {
   return (
     <Fragment>
-      <div class='navbar-fixed'>
+      <div class='navbar-fixed transparent'>
         <nav class='teal'>
           <div class='container'>
             <div class='nav-wrapper'>

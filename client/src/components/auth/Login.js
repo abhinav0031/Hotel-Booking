@@ -1,37 +1,74 @@
-import React, { Component } from 'react'
-import axios from "axios";
+import React, { Component, Fragment } from 'react';
+import axios from 'axios';
 
 export default class Login extends Component {
   constructor() {
     super();
-    this.state = { email:null,
-                  password:null
-                };
- 
+    this.state = { email: null, password: null };
   }
-  handleChange=(e)=>{
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]:e.target.value
-    })
-  }
-  
-  submit=()=>{
-    const logindata={
-      email:this.state.email,
-      password:this.state.password
-    }
-    axios.post('http://localhost:5000/user/login',logindata)
-    .then(response=>{
-      localStorage.setItem("token",response.data.token)
-    })
-  }
+      [e.target.name]: e.target.value
+    });
+  };
+
+  submit = () => {
+    const logindata = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    axios
+      .post('http://localhost:5000/user/login', logindata)
+      .then((response) => {
+        localStorage.setItem('token', response.data.token);
+      });
+  };
   render() {
     return (
-       <div>
-         <input type="text"  placeholder="email" name="email" onChange={this.handleChange}/>
-         <input type="password" placeholder="password"  name="password" onChange={this.handleChange}/>
-         <button onClick={this.submit}  >submit </button>
-       </div>
-    )
+      <Fragment>
+        <div className='row loginbody'>
+          <div className='login col s12 l4 offset-l4'>
+            <div className='card'>
+              <div className='card-action teal white-text'>
+                <h3>Login to your Account</h3>
+              </div>
+              <div className='card-content'>
+                <div className='form-field'>
+                  <label htmlFor='email'>Email</label>
+                  <input
+                    type='text'
+                    placeholder='email'
+                    name='email'
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className='form-field'>
+                  <label htmlFor='password'>Password</label>
+                  <input
+                    type='password'
+                    placeholder='password'
+                    name='password'
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className='form-field'>
+                  <button class='btn teal' onClick={this.submit}>
+                    submit{' '}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class='section teal darken-2 white-text center'>
+          <p class='flow-text'>HotelBooker &copy; 2020</p>
+        </footer>
+      </Fragment>
+      //  <div>
+      //    <input type="text"  placeholder="email" name="email" onChange={this.handleChange}/>
+      //    <input type="password" placeholder="password"  name="password" onChange={this.handleChange}/>
+      //    <button onClick={this.submit}  >submit </button>
+      //  </div>
+    );
   }
 }
