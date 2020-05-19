@@ -10,7 +10,7 @@ const hotel_router = require('./Api/routes/hotel_router'); // router handeling h
 
 // mongodb+srv://order:order@order-rngvt.mongodb.net/test?retryWrites=true&w=majority
 mongoose.connect(
-  'mongodb+srv://admin:admin@cluster0-k3qmq.mongodb.net/test?retryWrites=true&w=majority',
+  'mongodb+srv://order:order@order-rngvt.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log('db connected +');
