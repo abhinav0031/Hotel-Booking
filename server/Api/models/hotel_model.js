@@ -4,7 +4,6 @@ const hotelSchema=mongoose.Schema({
     hotelName: String,
     Address: String,
     location:String,
-    url:String,
     price:Number,
     contact:String,
     rooms:Number

@@ -9,6 +9,9 @@ const booking_router = require('./Api/routes/booking_router'); // router handing
 const hotel_router = require('./Api/routes/hotel_router'); // router handeling hotel option details
 
 // mongodb+srv://order:order@order-rngvt.mongodb.net/test?retryWrites=true&w=majority
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 mongoose.connect(
   'mongodb+srv://order:order@order-rngvt.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },

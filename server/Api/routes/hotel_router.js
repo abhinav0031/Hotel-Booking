@@ -2,6 +2,8 @@ const express =require('express');
 const router=express.Router();
 const hotel=require('../models/hotel_model');
 const mongoose=require('mongoose');
+const multer=require('multer');
+const upload=multer({dest:'uploads/'});
 
 router.get('/',(req,res,next)=>{
     const location=req.body.location;
@@ -12,13 +14,13 @@ router.get('/',(req,res,next)=>{
     })
 })
 
-router.post('/',(req,res,next)=>{
+router.post('/',upload.single('productImage'),(req,res,next)=>{
+    console.log(req.file);
     const place=new hotel({
         _id:new mongoose.Types.ObjectId(),
         hotelName: req.body.hotel,
     Address: req.body.address,
     location:req.body.location,
-    url:req.body.url,
     price:req.body.price,
     contact:req.body.contact,
     rooms:req.body.rooms
@@ -30,7 +32,9 @@ router.post('/',(req,res,next)=>{
     })
 })
 
-
+router.post('/img',upload.single('image'),(req,res)=>{
+    console.log(req.file)
+})
 
 module.exports=router;
 

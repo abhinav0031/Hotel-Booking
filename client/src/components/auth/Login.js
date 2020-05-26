@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 
+
 export default class Login extends Component {
   constructor() {
     super();
@@ -21,6 +22,8 @@ export default class Login extends Component {
       .post('http://localhost:5000/user/login', logindata)
       .then((response) => {
         localStorage.setItem('token', response.data.token);
+        alert("user valid (logged in)")
+        console.log(response.status)
       });
   };
   render() {
