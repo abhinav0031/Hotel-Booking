@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Booking from './components/booking/Booking';
+import Hotels from './components/booking/Hotels';
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/booking' component={Booking} />
+          <Route exact path='/booking/:location' component={Hotels} />
         </Switch>
       </Fragment>
     </Router>

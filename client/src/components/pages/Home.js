@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 export const Home = () => {
   return (
     <Fragment>
@@ -58,7 +59,6 @@ export const Home = () => {
           </li>
         </ul>
       </section>
-
       <section
         id='search'
         class='section section-search teal darken-1 white-text center scrollspy'
