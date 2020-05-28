@@ -4,7 +4,7 @@ export const Hotels = ({ match }) => {
   // var location=match.params.l
   return (
     <Fragment>
-      <h1>You choose {match.params.location} BITCHHH!!!!</h1>
+      <h1>You selected {match.params.location}</h1>
     </Fragment>
   );
 };
