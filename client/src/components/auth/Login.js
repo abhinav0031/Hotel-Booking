@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 
@@ -26,7 +26,13 @@ const Login = (props) => {
         alert('user valid (logged in)');
         console.log(response.status);
       });
-    props.history.push('/');
+    const tz = localStorage.getItem('token');
+    if (tz != '') {
+      props.history.push('/');
+    } else {
+      alert('no token');
+    }
+    // props.history.push('/');
   };
   return (
     <Fragment>
