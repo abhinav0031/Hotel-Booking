@@ -63,7 +63,7 @@ header {
   widows: 100%;
   padding: 10px;
   text-align: center;
-  background: linear-gradient(#191970, #4169e1);
+  background: linear-gradient(#0fd8b6,#008080);
   color: #fff;
   font-size: 25px;
   text-shadow: 1px 1px 2px #000;
@@ -101,13 +101,13 @@ label {
   width: 100%;
   padding: 10px;
   font-size: 18px;
-  background: linear-gradient(#dc143c, #b22222);
+  background: linear-gradient(#0fd8b6,#008080);
   cursor: #fff;
   border: none;
 }
 
 .sub-btn:hover {
-  background: linear-gradient(#b22222, #dc143c);
+  background: linear-gradient(#315152, #75a599);
 }
 
 .sub-btn:focus {
