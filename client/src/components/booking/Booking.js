@@ -33,7 +33,7 @@ export const Booking = () => {
             <div className='col s12 m6 l6'>
               <img
                 class='materialboxed responsive-img'
-                src={'https://source.unsplash.com/1600x900/?goa'}
+                src={'https://source.unsplash.com/1600x900/?goaBeach'}
                 alt=''
               />
               <h5 class='center'>
@@ -65,7 +65,7 @@ export const Booking = () => {
             <div className='col s12 m6 l6'>
               <img
                 class='materialboxed responsive-img'
-                src={'https://source.unsplash.com/1600x900/?Mumbai'}
+                src={'https://source.unsplash.com/1600x900/?MarineDrive'}
                 alt=''
               />
               <h5 class='center'>

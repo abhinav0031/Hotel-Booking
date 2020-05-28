@@ -22,7 +22,7 @@ mongoose.connect(
 
 // logger
 app.use(morgan('dev'));
-app.use('/upload',express.static('upload'))
+app.use('/upload', express.static('upload'));
 // parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ extended: false }));
