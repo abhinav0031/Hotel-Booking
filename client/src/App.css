@@ -38,3 +38,84 @@
 .hh {
   margin-left: 46px;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  opacity: 10;
+  background-image: url('./components/hotelregister/h.jpg');
+  background-color: #555;
+}
+.main {
+  width: 500px;
+  background-color: #eee;
+  margin: 20px auto;
+  border-radius: 5px;
+  border: 2px solid rgb(138, 134, 190);
+  box-shadow: 0 0 10px rgb(8, 9, 10);
+}
+
+header {
+  widows: 100%;
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(#191970, #4169e1);
+  color: #fff;
+  font-size: 25px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.form-box {
+  padding: 10px 25px 20px 25px;
+}
+.inp {
+  font-size: 15px;
+  width: 100%;
+  padding: 8px 12px 12px 10px;
+  border: none;
+  box-shadow: 0 0 2px 1px #444;
+}
+
+.inp:focus {
+  outline: none;
+  box-shadow: 0 0 5px 1px #4169e1;
+  color: #191970;
+  font-weight: 600px;
+}
+
+label {
+  font-size: 18px;
+  color: #0a0a0f;
+  font-weight: 580px;
+}
+
+.inp-row {
+  margin: 5px 0 10px 0;
+}
+
+.sub-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  background: linear-gradient(#dc143c, #b22222);
+  cursor: #fff;
+  border: none;
+}
+
+.sub-btn:hover {
+  background: linear-gradient(#b22222, #dc143c);
+}
+
+.sub-btn:focus {
+  outline: none;
+}
+
+@media (max-width: 720px) {
+  .main {
+    width: 90%;
+  }
+}
