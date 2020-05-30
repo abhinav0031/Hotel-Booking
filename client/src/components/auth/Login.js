@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loggedIn, setLog] = useState('no');
   const handleChange = (e) => {
     if (e.target.name === 'email') {
       setEmail(e.target.value);
@@ -23,18 +24,18 @@ const Login = (props) => {
       .post('http://localhost:5000/user/login', logindata)
       .then((response) => {
         localStorage.setItem('token', response.data.token);
-        alert('user valid (logged in)');
-        console.log(response.status);
+        setLog('yes')
+        
       });
-    const tz = localStorage.getItem('token');
-    if (tz !== '') {
-      props.history.push('/');
-     // <Redirect to='http://localhost:3000/'/>
-    } else {
-      alert('no token');
-    }
+    //const tz = localStorage.getItem('token');
+    
     // props.history.push('/');
   };
+  useEffect(() => {
+    if (loggedIn === 'yes') {
+      props.history.push('/');
+    } 
+  });
   return (
     <Fragment>
       <div className='row loginbody'>
