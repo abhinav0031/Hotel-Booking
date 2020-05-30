@@ -4,7 +4,15 @@ const user=require('../models/user_model');
 const mongoose=require('mongoose');
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
+var nodemailer = require('nodemailer');
 
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'globetrotterschitkara@gmail.com',
+      pass: '############'
+    }
+  });
 ///login route
 router.post('/login',(req,res,next)=>{    
     user.find({email:req.body.email})
@@ -88,12 +96,25 @@ router.post('/register',(req,res,next)=>{
                         password:hash,
                         email:req.body.email
                     });
+                    var mailOptions = {
+                        from: 'globetrotterschitkara@gmail.com',
+                        to: req.body.email,
+                        subject: 'successfully onboarded Globetrotters',
+                        text: `We welcome you to a new amazing experiance of hotel booking.`
+                      };
                     person.save().then(result=>{
                         console.log(result);
                         res.status(200).json({
                             message:"new user Added sucessfully",
                             newUser: result
                         })
+                        transporter.sendMail(mailOptions, function(error, info){
+                            if (error) {
+                              console.log(error);
+                            } else {
+                              console.log('Email sent: ' + info.response);
+                            }
+                          });
                     }).catch(err=>{
                         console.log(err)
                         res.status(500).json({

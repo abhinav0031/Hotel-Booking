@@ -27,7 +27,7 @@ const Login = (props) => {
         console.log(response.status);
       });
     const tz = localStorage.getItem('token');
-    if (tz != '') {
+    if (tz !== '') {
       props.history.push('/');
     } else {
       alert('no token');

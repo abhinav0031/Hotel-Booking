@@ -15,8 +15,7 @@ export const Home = () => {
             <div class='caption center-align'>
               <h2>Take Your Dream Vacation</h2>
               <h5 class='light grey-text text-lighten-3 hide-on-small-only'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                non illo earum cumque id est!
+              Discover a hotel that defines a new dimension of luxury.Come in as Guests, Leave as Family.
               </h5>
               <a href='#' class='btn btn-large'>
                 Learn More
