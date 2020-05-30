@@ -52,10 +52,7 @@ router.post('/',upload.single('avatar'),(req,res,next)=>{
     })
 })
 
-/*router.post('/profile', upload.single('avatar'), function (req, res, next) {
-      console.log(req.files);
-      res.status(200).json({msg:"kaam hogaya"})
-  })*/
+
 
 module.exports=router;
 

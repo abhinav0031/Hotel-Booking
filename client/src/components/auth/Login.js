@@ -29,6 +29,7 @@ const Login = (props) => {
     const tz = localStorage.getItem('token');
     if (tz !== '') {
       props.history.push('/');
+     // <Redirect to='http://localhost:3000/'/>
     } else {
       alert('no token');
     }
