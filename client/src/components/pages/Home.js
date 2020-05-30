@@ -1,7 +1,41 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export const Home = () => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMsg] = useState('');
+  const handleChange = (e) => {
+    if (e.target.name === 'name') {
+      setName(e.target.value);
+    }
+    if (e.target.name === 'phone') {
+      setPhone(e.target.value);
+    }
+    if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    }
+    if (e.target.name === 'message') {
+      setMsg(e.target.value);
+    }
+  };
+
+  const submit = () => {
+    const querydata = {
+      name:name,
+      email: email,
+      phone: phone,
+      message:message
+    };
+    axios
+      .post('http://localhost:5000/query', querydata)
+      .then((response) => {
+        alert("Successfully submitted query!!!!!");
+        console.log(response)
+      });
+  };
   return (
     <Fragment>
       <section class='slider'>
@@ -318,26 +352,22 @@ export const Home = () => {
               <div class='card-panel grey lighten-3'>
                 <h5>Have any questions ask here!!</h5>
                 <div class='input-field'>
-                  <input type='text' placeholder='Name' id='name' />
+                  <input type='text' placeholder='Name' name='name' onChange={handleChange} />
                   <label for='name'>Name</label>
                 </div>
                 <div class='input-field'>
-                  <input type='email' placeholder='Email' id='email' />
+                  <input type='email' placeholder='Email' name='email' onChange={handleChange} />
                   <label for='email'>Email</label>
                 </div>
                 <div class='input-field'>
-                  <input type='text' placeholder='Phone' id='phone' />
+                  <input type='text' placeholder='Phone' name='phone'  onChange={handleChange} />
                   <label for='phone'>Phone</label>
                 </div>
                 <div class='input-field'>
-                  <textarea
-                    class='materialize-textarea'
-                    placeholder='Question/problem'
-                    id='message'
-                  ></textarea>
+                <input type='text' placeholder='message' name='message'  onChange={handleChange} />
                   <label for='message'>Message</label>
                 </div>
-                <input type='submit' value='Submit' class='btn' />
+                <input type='submit' value='Submit' class='btn'  onClick={submit} />
               </div>
             </div>
           </div>
