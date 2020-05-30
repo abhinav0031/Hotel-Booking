@@ -34,6 +34,10 @@ export const Home = () => {
       .then((response) => {
         alert("Successfully submitted query!!!!!");
         console.log(response)
+        setName('');
+        setPhone('');
+        setEmail('');
+        setMsg('');
       });
   };
   return (
@@ -352,19 +356,19 @@ export const Home = () => {
               <div class='card-panel grey lighten-3'>
                 <h5>Have any questions ask here!!</h5>
                 <div class='input-field'>
-                  <input type='text' placeholder='Name' name='name' onChange={handleChange} />
+                  <input type='text' placeholder='Name' name='name' value={name} onChange={handleChange} />
                   <label for='name'>Name</label>
                 </div>
                 <div class='input-field'>
-                  <input type='email' placeholder='Email' name='email' onChange={handleChange} />
+                  <input type='email' placeholder='Email' name='email' value={email} onChange={handleChange} />
                   <label for='email'>Email</label>
                 </div>
                 <div class='input-field'>
-                  <input type='text' placeholder='Phone' name='phone'  onChange={handleChange} />
+                  <input type='text' placeholder='Phone' name='phone' value={phone}  onChange={handleChange} />
                   <label for='phone'>Phone</label>
                 </div>
                 <div class='input-field'>
-                <input type='text' placeholder='message' name='message'  onChange={handleChange} />
+                <input type='text' placeholder='message' name='message' value={message}  onChange={handleChange} />
                   <label for='message'>Message</label>
                 </div>
                 <input type='submit' value='Submit' class='btn'  onClick={submit} />
