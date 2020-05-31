@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const user_router = require('./Api/routes/user_router'); /// router handeling login and register
 const booking_router = require('./Api/routes/booking_router'); // router handing bookins ans modifying bookings
 const hotel_router = require('./Api/routes/hotel_router'); // router handeling hotel option details
+const query=require('./Api/routes/Query_router');
 
 // mongodb+srv://order:order@order-rngvt.mongodb.net/test?retryWrites=true&w=majority
 mongoose.set('useNewUrlParser', true);
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 app.use('/user', user_router);
 app.use('/book', booking_router);
 app.use('/hotel', hotel_router);
+app.use('/query', query);
 
 /// error control
 app.use((req, res, next) => {

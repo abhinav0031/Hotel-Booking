@@ -1,7 +1,45 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export const Home = () => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMsg] = useState('');
+  const handleChange = (e) => {
+    if (e.target.name === 'name') {
+      setName(e.target.value);
+    }
+    if (e.target.name === 'phone') {
+      setPhone(e.target.value);
+    }
+    if (e.target.name === 'email') {
+      setEmail(e.target.value);
+    }
+    if (e.target.name === 'message') {
+      setMsg(e.target.value);
+    }
+  };
+
+  const submit = () => {
+    const querydata = {
+      name:name,
+      email: email,
+      phone: phone,
+      message:message
+    };
+    axios
+      .post('http://localhost:5000/query', querydata)
+      .then((response) => {
+        alert("Successfully submitted query!!!!!");
+        console.log(response)
+        setName('');
+        setPhone('');
+        setEmail('');
+        setMsg('');
+      });
+  };
   return (
     <Fragment>
       <section class='slider'>
@@ -31,8 +69,8 @@ export const Home = () => {
             <div class='caption left-align'>
               <h2>We Work With All Budgets</h2>
               <h5 class='light grey-text text-lighten-3 hide-on-small-only'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                non illo earum cumque id est!
+                We have tried our best to arrange the cheapest options avialable in the market. 
+                we work with no intensions of making profit.
               </h5>
               <a href='#' class='btn btn-large'>
                 Learn More
@@ -48,8 +86,7 @@ export const Home = () => {
             <div class='caption right-align'>
               <h2>Plan Group Or Individual Vacations</h2>
               <h5 class='light grey-text text-lighten-3 hide-on-small-only'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                non illo earum cumque id est!
+                 Plan one the most lucrative amazing experience with us and make it a beutiful memory of your life.
               </h5>
               <a href='#' class='btn btn-large'>
                 Learn More
@@ -87,8 +124,7 @@ export const Home = () => {
                 <i class='fa fa-map-marker fa-6x aria-hidden="true"'></i>
                 <h4>Pick Where</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Quidem, velit.
+                The art of meeting your highest expectations.
                 </p>
               </div>
             </div>
@@ -97,8 +133,7 @@ export const Home = () => {
                 <i class='fa fa-store fa-6x'></i>
                 <h4>Travel Shop</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Quidem, velit.
+                It’s said they never forget, neither will you
                 </p>
               </div>
             </div>
@@ -107,8 +142,7 @@ export const Home = () => {
                 <i class='fa fa-hotel fa-6x '></i>
                 <h4>Book Cheap</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Quidem, velit.
+                Twice the comfort, twice the value, twice the Hotel.
                 </p>
               </div>
             </div>
@@ -130,9 +164,7 @@ export const Home = () => {
                 </div>
                 <div class='card-content'>
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Voluptas aliquid fugiat corporis laudantium, architecto
-                    delectus?
+                  The fun, sunshine and the smallest state of India doesn’t need any introduction.
                   </p>
                 </div>
               </div>
@@ -145,9 +177,7 @@ export const Home = () => {
                 </div>
                 <div class='card-content'>
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Voluptas aliquid fugiat corporis laudantium, architecto
-                    delectus?
+                    You can take daydreamer out of mumbai but you can not take mumbai out of a daydreamer.
                   </p>
                 </div>
               </div>
@@ -160,9 +190,7 @@ export const Home = () => {
                 </div>
                 <div class='card-content'>
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Voluptas aliquid fugiat corporis laudantium, architecto
-                    delectus?
+                   Manali is adventure capital of India, a place that offers you peace,thrill and adventure at same place.
                   </p>
                 </div>
               </div>
@@ -310,11 +338,9 @@ export const Home = () => {
             <div class='col s12 m6'>
               <div class='card-panel teal white-text center'>
                 <i class='material-icons medium'>email</i>
-                <h5>Contact Us For Booking</h5>
+                <h5>Contact Us For Issues</h5>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Repellendus sed praesentium delectus. Sit, mollitia quo.
-                  Veniam repellat voluptas ipsum doloremque?
+                  We stand with you for your any query. you can also give your suggestions to us for improvement, we have a open thought process for uni-intentional goal of providing best experience.
                 </p>
               </div>
               <ul class='collection with-header'>
@@ -330,26 +356,22 @@ export const Home = () => {
               <div class='card-panel grey lighten-3'>
                 <h5>Have any questions ask here!!</h5>
                 <div class='input-field'>
-                  <input type='text' placeholder='Name' id='name' />
+                  <input type='text' placeholder='Name' name='name' value={name} onChange={handleChange} />
                   <label for='name'>Name</label>
                 </div>
                 <div class='input-field'>
-                  <input type='email' placeholder='Email' id='email' />
+                  <input type='email' placeholder='Email' name='email' value={email} onChange={handleChange} />
                   <label for='email'>Email</label>
                 </div>
                 <div class='input-field'>
-                  <input type='text' placeholder='Phone' id='phone' />
+                  <input type='text' placeholder='Phone' name='phone' value={phone}  onChange={handleChange} />
                   <label for='phone'>Phone</label>
                 </div>
                 <div class='input-field'>
-                  <textarea
-                    class='materialize-textarea'
-                    placeholder='Question/problem'
-                    id='message'
-                  ></textarea>
+                <input type='text' placeholder='message' name='message' value={message}  onChange={handleChange} />
                   <label for='message'>Message</label>
                 </div>
-                <input type='submit' value='Submit' class='btn' />
+                <input type='submit' value='Submit' class='btn'  onClick={submit} />
               </div>
             </div>
           </div>
