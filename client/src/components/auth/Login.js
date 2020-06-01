@@ -26,9 +26,9 @@ const Login = (props) => {
       .post('http://localhost:5000/user/login', logindata)
       .then((response) => {
         localStorage.setItem('token', response.data.token);
-        console.log(isAuthenticated);
+        //console.log(isAuthenticated);
         login();
-        console.log(isAuthenticated);
+        //console.log(isAuthenticated);
         setLog('yes');
       });
     //const tz = localStorage.getItem('token');

@@ -20,9 +20,15 @@ export const AuthState = (props) => {
     }
   };
   const logout = () => {
-    dispatch({
-      type: LOGOUT
-    });
+    try {
+      dispatch({
+        type: LOGOUT
+      });
+    } catch (err) {
+      dispatch({
+        type: LOGIN_FAIL
+      });
+    }
   };
   return (
     <AuthContext.Provider

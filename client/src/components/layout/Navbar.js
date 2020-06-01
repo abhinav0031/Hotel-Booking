@@ -17,6 +17,9 @@ export const Navbar = () => {
       </li>
     </Fragment>
   );
+  const onLogout = () => {
+    logout();
+  };
   const authlinks = (
     <Fragment>
       <li>
@@ -26,13 +29,14 @@ export const Navbar = () => {
         <Link to='/booking'>Booking</Link>
       </li>
       <li>
-        <a onClick={logout} href='#!'>
+        <a onClick={onLogout} href='#!'>
           <i className='fa fa-sign-out-alt'></i>
           <span className='hide-sm'>Logout</span>
         </a>
       </li>
     </Fragment>
   );
+
   return (
     <Fragment>
       <div class='navbar-fixed'>

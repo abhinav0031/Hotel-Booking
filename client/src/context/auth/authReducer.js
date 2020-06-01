@@ -1,6 +1,4 @@
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../types';
-import React from 'react';
-
 export default (state, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
@@ -15,6 +13,7 @@ export default (state, action) => {
         isAuthenticated: false
       };
     case LOGOUT:
+      console.log('logout');
       localStorage.removeItem('token');
       return {
         ...state,
