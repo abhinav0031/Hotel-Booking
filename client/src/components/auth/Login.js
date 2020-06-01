@@ -1,8 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 
 const Login = (props) => {
+  const authContext = useContext(AuthContext);
+  const { login, isAuthenticated } = authContext;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLog] = useState('no');
@@ -24,17 +26,19 @@ const Login = (props) => {
       .post('http://localhost:5000/user/login', logindata)
       .then((response) => {
         localStorage.setItem('token', response.data.token);
-        setLog('yes')
-        
+        console.log(isAuthenticated);
+        login();
+        console.log(isAuthenticated);
+        setLog('yes');
       });
     //const tz = localStorage.getItem('token');
-    
+
     // props.history.push('/');
   };
   useEffect(() => {
     if (loggedIn === 'yes') {
       props.history.push('/');
-    } 
+    }
   });
   return (
     <Fragment>

@@ -1,6 +1,38 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 export const Navbar = () => {
+  const authContext = useContext(AuthContext);
+  const { isAuthenticated, logout } = authContext;
+  const guestlinks = (
+    <Fragment>
+      <li>
+        <Link to='/'>Home</Link>
+      </li>
+      <li>
+        <Link to='/register'>Register</Link>
+      </li>
+      <li>
+        <Link to='/login'>Login</Link>
+      </li>
+    </Fragment>
+  );
+  const authlinks = (
+    <Fragment>
+      <li>
+        <Link to='/'>Home</Link>
+      </li>
+      <li>
+        <Link to='/booking'>Booking</Link>
+      </li>
+      <li>
+        <a onClick={logout} href='#!'>
+          <i className='fa fa-sign-out-alt'></i>
+          <span className='hide-sm'>Logout</span>
+        </a>
+      </li>
+    </Fragment>
+  );
   return (
     <Fragment>
       <div class='navbar-fixed'>
@@ -15,18 +47,7 @@ export const Navbar = () => {
                 <i class='material-icons'>menu</i>
               </a>
               <ul class='right hide-on-med-and-down'>
-                <li>
-                  <Link to='/'>Home</Link>
-                </li>
-                <li>
-                  <Link to='/booking'>Booking</Link>
-                </li>
-                <li>
-                  <Link to='/register'>Register</Link>
-                </li>
-                <li>
-                  <Link to='/login'>Login</Link>
-                </li>
+                {isAuthenticated ? authlinks : guestlinks}
               </ul>
             </div>
           </div>
