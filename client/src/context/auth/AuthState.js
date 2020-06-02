@@ -1,9 +1,10 @@
 import React, { useReducer } from 'react';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../types';
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, HOTELS } from '../types';
 export const AuthState = (props) => {
   const initialState = {
+    hotels: [],
     email: null,
     isAuthenticated: null
   };
@@ -32,13 +33,21 @@ export const AuthState = (props) => {
       });
     }
   };
+  const getHotels = (hotels) => {
+    dispatch({
+      type: HOTELS,
+      payload: hotels
+    });
+  };
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated: state.isAuthenticated,
         email: state.email,
+        hotels: state.hotels,
         login,
-        logout
+        logout,
+        getHotels
       }}
     >
       {props.children}

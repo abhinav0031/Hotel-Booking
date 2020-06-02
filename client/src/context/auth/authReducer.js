@@ -1,6 +1,11 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../types';
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, HOTELS } from '../types';
 export default (state, action) => {
   switch (action.type) {
+    case HOTELS:
+      return {
+        ...state,
+        hotels: action.payload
+      };
     case LOGIN_SUCCESS:
       return {
         ...state,

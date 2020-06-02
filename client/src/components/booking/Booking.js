@@ -3,25 +3,28 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../../context/auth/authContext';
 export const Booking = () => {
+  const authContext = useContext(AuthContext);
+  const { getHotels } = authContext;
   const [hotels, setInput] = useState('');
-  const handleChange=(hot)=>{
-      setInput(hot)
-  }
+  const [loc, setLoc] = useState('');
+  // const handleChange = (hot) => {
+  //   getHotels(hot);
+  //   setInput(hot);
+  // };
+  const getChanged = (e) => {
+    setLoc(e.target.value);
+  };
+  // const submit = () => {
+  //   const place = document.getElementById('autocomplete-input').value;
 
-  const submit=()=>{
-         const place=document.getElementById("autocomplete-input").value;
-         
-      axios
-      .get('http://localhost:5000/hotel/'+place)
-      .then((response) => {
-       // console.log(response);
-        handleChange(response.data)
-      });
-  }
-  console.log(hotels)
-  console.log('khbhgvghvghv')
+  //   axios.get('http://localhost:5000/hotel/' + place).then((response) => {
+  //     // console.log(response);
+  //     handleChange(response.data);
+  //   });
+  // };
+  console.log(hotels);
+  console.log('khbhgvghvghv');
   return (
-    
     <Fragment>
       <section
         id='search'
@@ -37,10 +40,17 @@ export const Booking = () => {
                   placeholder='Location'
                   type='text'
                   id='autocomplete-input'
-                
+                  onChange={getChanged}
                 />
               </div>
-              <button class='btn wave-effect' onClick={submit}>Search</button>
+              <button class='btn white-text'>
+                <Link to={'/booking/' + loc} class='white-text'>
+                  Search
+                </Link>
+              </button>
+              {/* <button class='btn wave-effect' onClick={submit}>
+                Search
+              </button> */}
             </div>
           </div>
         </div>
