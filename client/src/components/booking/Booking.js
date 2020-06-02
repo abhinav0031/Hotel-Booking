@@ -1,11 +1,27 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import AuthContext from '../../context/auth/authContext';
 export const Booking = () => {
-  // const authContext = useContext(AuthContext);
-  // const { email } = authContext;
-  // console.log(email);
+  const [hotels, setInput] = useState('');
+  const handleChange=(hot)=>{
+      setInput(hot)
+  }
+
+  const submit=()=>{
+         const place=document.getElementById("autocomplete-input").value;
+         
+      axios
+      .get('http://localhost:5000/hotel/'+place)
+      .then((response) => {
+       // console.log(response);
+        handleChange(response.data)
+      });
+  }
+  console.log(hotels)
+  console.log('khbhgvghvghv')
   return (
+    
     <Fragment>
       <section
         id='search'
@@ -21,9 +37,10 @@ export const Booking = () => {
                   placeholder='Location'
                   type='text'
                   id='autocomplete-input'
+                
                 />
               </div>
-              <button class='btn wave-effect'>Search</button>
+              <button class='btn wave-effect' onClick={submit}>Search</button>
             </div>
           </div>
         </div>

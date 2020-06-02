@@ -50,7 +50,7 @@ const Booking = () =>  {
    console.log(hoteldata);
     axios.post('http://localhost:5000/hotel', hoteldata)
        .then((response) => {
-     alert(response);
+     console.log(response);
      });
   };
 
