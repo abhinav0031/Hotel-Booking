@@ -10,7 +10,7 @@ var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'globetrotterschitkara@gmail.com',
-      pass: '333333'
+      pass: '1@globetrotterHotel'
     }
   });
 ///login route
