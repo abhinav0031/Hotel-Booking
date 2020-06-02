@@ -1,9 +1,10 @@
-import React, { Fragment, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment, useContext, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
-export const Navbar = () => {
+export const Navbar = (props) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout } = authContext;
+
   const guestlinks = (
     <Fragment>
       <li>
