@@ -1,44 +1,60 @@
-import React from 'react';
+import React,{ Fragment, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import { Fragment } from 'react';
 
-class Booking extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      hotelName: null,
-      Address: null,
-      Location: null,
-      url: null,
-      Price: null,
-      Contact: null,
-      Rooms: null
-    };
-  }
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+
+const Booking = () =>  {
+  
+  const [hotel, sethotel] = useState('');
+  const [address, setaddress] = useState('');
+  const [location, setlocation] = useState('');
+  const [price, setprice] = useState('');
+  const [contact, setcontact] = useState('');
+  const [rooms, setrooms] = useState('');
+  //const [file, setfile] = useState(null);
+  const handleChange = (e) => {
+    if (e.target.name === 'hotel') {
+      sethotel(e.target.value);
+    }
+    if (e.target.name === 'address') {
+      setaddress(e.target.value);
+    }
+    if (e.target.name === 'location') {
+      setlocation(e.target.value);
+    }
+    if (e.target.name === 'price') {
+      setprice(e.target.value);
+    }
+    if (e.target.name === 'contact') {
+      setcontact(e.target.value);
+    }
+    if (e.target.name === 'rooms') {
+      setrooms(e.target.value);
+    }
   };
+  const handlefile = (e) => {
+    const file=e.target.files[0];
+   
 
-  submit = () => {
+     //console.log(file);
+  };
+  const submit = () => {
+   // console.log(this .state)
     const hoteldata = {
-      hotelName: this.state.HotelName,
-      Address: this.state.Address,
-      Location: this.state.Location,
-      Price: this.state.Price,
-      Contact: this.state.Contact,
-      Rooms: this.state.Rooms,
-      url: this.state.Image
+      hotel: hotel,
+      address: address,
+      location: location,
+      price: price,
+      contact: contact,
+      rooms: rooms, 
     };
-
-    axios.post('http://localhost:5000/hotel', hoteldata);
-    // .then((response) => {
-    //   alert(response.data.message);
-    // });
+   console.log(hoteldata);
+    axios.post('http://localhost:5000/hotel', hoteldata)
+       .then((response) => {
+     alert(response);
+     });
   };
 
-  render() {
+  
     return (
       <Fragment>
         <section class='hr-body'>
@@ -50,10 +66,10 @@ class Booking extends React.Component {
                 <div class='inp-row'>
                   <input
                     type='text'
-                    name='HotelName'
+                    name='hotel'
                     className='inp'
                     placeholder='Name of Hotel'
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     required
                   ></input>
                 </div>
@@ -62,10 +78,10 @@ class Booking extends React.Component {
                 <div class='inp-row'>
                   <input
                     type='text'
-                    name='Address'
+                    name='address'
                     className='inp'
                     placeholder='Complete Address of Hotel'
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     required
                   ></input>
                 </div>
@@ -74,10 +90,10 @@ class Booking extends React.Component {
                 <div class='inp-row'>
                   <input
                     type='text'
-                    name='Location'
+                    name='location'
                     className='inp'
                     placeholder='Location'
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     required
                   ></input>
                 </div>
@@ -85,11 +101,11 @@ class Booking extends React.Component {
                 <label htmlfor='Price'>Price</label>
                 <div class='inp-row'>
                   <input
-                    type='Number'
-                    name='Price'
+                    type='text'
+                    name='price'
                     className='inp'
                     placeholder='Price'
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     required
                   ></input>
                 </div>
@@ -97,11 +113,11 @@ class Booking extends React.Component {
                 <label htmlfor='Contact'>Contact</label>
                 <div class='inp-row'>
                   <input
-                    type='Number'
-                    name='Contact'
+                    type='text'
+                    name='contact'
                     className='inp'
                     placeholder='Contact No.'
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     required
                   ></input>
                 </div>
@@ -109,11 +125,11 @@ class Booking extends React.Component {
                 <label htmlfor='Rooms'>Rooms</label>
                 <div class='inp-row'>
                   <input
-                    type='Number'
-                    name='Rooms'
+                    type='text'
+                    name='rooms'
                     className='inp'
                     placeholder='No. of Rooms available'
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     required
                   ></input>
                 </div>
@@ -123,19 +139,19 @@ class Booking extends React.Component {
                   <input
                     type='file'
                     alt='image'
-                    name='Image'
+                    name='file'
                     className='inp'
                     placeholder='Uplaod Images '
-                    onChange={this.handleChange}
+                    onChange={handlefile}
                     required
                   ></input>
                 </div>
 
                 <input
-                  type='submit'
+                  type='button'
                   class='sub-btn'
                   value='Register'
-                  onClick={this.submit()}
+                  onClick={submit}
                 ></input>
               </form>
             </div>
@@ -148,5 +164,5 @@ class Booking extends React.Component {
       </Fragment>
     );
   }
-}
+
 export default Booking;
