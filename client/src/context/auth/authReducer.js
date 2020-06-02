@@ -4,6 +4,7 @@ export default (state, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
+        email: action.payload,
         isAuthenticated: true
       };
 

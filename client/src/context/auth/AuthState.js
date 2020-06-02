@@ -4,14 +4,16 @@ import authReducer from './authReducer';
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../types';
 export const AuthState = (props) => {
   const initialState = {
+    email: null,
     isAuthenticated: null
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  const login = () => {
+  const login = (email) => {
     try {
       dispatch({
-        type: LOGIN_SUCCESS
+        type: LOGIN_SUCCESS,
+        payload: email
       });
     } catch (err) {
       dispatch({
@@ -34,6 +36,7 @@ export const AuthState = (props) => {
     <AuthContext.Provider
       value={{
         isAuthenticated: state.isAuthenticated,
+        email: state.email,
         login,
         logout
       }}

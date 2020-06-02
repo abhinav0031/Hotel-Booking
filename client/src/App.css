@@ -10,6 +10,10 @@
 .regiss {
   padding-top: 160px;
 }
+.bookbtn {
+  margin-left: 140px;
+  padding-left: 30px;
+}
 .loginbody {
   background-image: url('../src/components/auth/images/img1.jpg');
   background-size: cover;
@@ -63,7 +67,7 @@ header {
   widows: 100%;
   padding: 10px;
   text-align: center;
-  background: linear-gradient(#0fd8b6,#008080);
+  background: linear-gradient(#0fd8b6, #008080);
   color: #fff;
   font-size: 25px;
   text-shadow: 1px 1px 2px #000;
@@ -101,7 +105,7 @@ label {
   width: 100%;
   padding: 10px;
   font-size: 18px;
-  background: linear-gradient(#0fd8b6,#008080);
+  background: linear-gradient(#0fd8b6, #008080);
   cursor: #fff;
   border: none;
 }

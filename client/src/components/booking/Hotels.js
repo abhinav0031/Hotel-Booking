@@ -4,35 +4,57 @@ export const Hotels = ({ match }) => {
   // var location=match.params.l
   return (
     <Fragment>
-      <h1 class='teal-text hh'>Hotels:</h1>
-      <section class='section section-hotels teal lighten-2 dark-text center scrollspy'>
-        <div class='container'>
-          <div class='row'>
-            <div class='col s12 m4'>
-              <div class='card-panel teal'>
+      <div className='container'>
+        <h1 class='teal-text'> Hotels:</h1>
+        <div class='row'>
+          <div class='col s12 m4'>
+            <div class='card'>
+              <div class='card-image'>
                 <img
-                  class='materialboxed responsive-img'
-                  src={'https://source.unsplash.com/1600x900/?hotels'}
+                  src={'https://source.unsplash.com/1600x900/?Hotels'}
                   alt=''
                 />
+                <span class='card-title'>Goa</span>
               </div>
-
-              <h5>Hotel-Name</h5>
+              <div class='card-content'>
+                <p>
+                  The fun, sunshine and the smallest state of India doesn’t need
+                  any introduction.
+                </p>
+              </div>
+              <button class='btn teal bookbtn'>Book</button>
             </div>
-            <div class='col s12 m3 offset-m3'>
-              <div class='card-panel teal'>
-                <span class='white-text'>
-                  I am a very simple card. I am good at containing small bits of
-                  information. I am convenient because I require little markup
-                  to use effectively. I am similar to what is called a panel in
-                  other frameworks.
-                </span>
+          </div>
+          <div class='col s12 m4'>
+            <div class='card'>
+              <div class='card-image'>
+                <img src={require('./img/resort2.jpg')} alt='' />
+                <span class='card-title'>Mumbai</span>
               </div>
-              {/* <i class='fas fa-star-half-o'></i> */}
+              <div class='card-content'>
+                <p>
+                  You can take daydreamer out of mumbai but you can not take
+                  mumbai out of a daydreamer.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class='col s12 m4'>
+            <div class='card'>
+              <div class='card-image'>
+                <img src={require('./img/resort3.jpg')} alt='' />
+                <span class='card-title'>Manali</span>
+              </div>
+              <div class='card-content'>
+                <p>
+                  Manali is adventure capital of India, a place that offers you
+                  peace,thrill and adventure at same place.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </Fragment>
     //  {/* <h1>You selected {match.params.location}</h1> */}
   );

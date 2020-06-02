@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 export const Booking = () => {
+  // const authContext = useContext(AuthContext);
+  // const { email } = authContext;
+  // console.log(email);
   return (
     <Fragment>
       <section
