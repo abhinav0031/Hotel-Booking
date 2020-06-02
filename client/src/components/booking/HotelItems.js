@@ -7,9 +7,9 @@ export const HotelItems = ({ name, location, price }) => {
         <div class='card'>
           <div class='card-image'>
             <img src={'https://source.unsplash.com/1600x900/?Hotels'} alt='' />
-            <span class='card-title'>{name}</span>
           </div>
           <div class='card-content'>
+            <span class='card-title black-text'>{name}</span>
             <p class='teal-text'>
               <span class='black-text'>Address:</span> {location}
             </p>

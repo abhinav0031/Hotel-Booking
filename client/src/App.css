@@ -13,6 +13,7 @@
 .bookbtn {
   margin-left: 140px;
   padding-left: 30px;
+  margin-bottom: 30px;
 }
 .loginbody {
   background-image: url('../src/components/auth/images/img1.jpg');
