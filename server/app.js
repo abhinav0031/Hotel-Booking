@@ -14,7 +14,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect(
-  'mongodb+srv://admin:admin@cluster0-k3qmq.mongodb.net/test?retryWrites=true&w=majority',
+  'mongodb+srv://order:order@order-rngvt.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log('db connected +');
