@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 
-export const HotelItems = ({ name, location, price }) => {
+export const HotelItems = ({ name, location, price,contact,img_url }) => {
   return (
     <Fragment>
       <div class='col s12 m4'>
         <div class='card'>
           <div class='card-image'>
-            <img src={'https://source.unsplash.com/1600x900/?Hotels'} alt='' />
+            <img src={'http://localhost:5000/'+img_url} alt='' />
           </div>
           <div class='card-content'>
             <span class='card-title black-text'>{name}</span>
@@ -19,7 +19,7 @@ export const HotelItems = ({ name, location, price }) => {
             </p>
             <p class='teal-text'>
               <span class='black-text'>Contact No.:</span>
-              {price}
+              {contact}
             </p>
           </div>
           <button class='btn teal bookbtn'>Book</button>

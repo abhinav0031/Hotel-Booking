@@ -2,59 +2,52 @@ import React,{ Fragment, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 
 
-const Booking = () =>  {
+class Booking extends React.Component {
   
-  const [hotel, sethotel] = useState('');
+ /*const [hotel, sethotel] = useState('');
   const [address, setaddress] = useState('');
   const [location, setlocation] = useState('');
   const [price, setprice] = useState('');
   const [contact, setcontact] = useState('');
   const [rooms, setrooms] = useState('');
-  //const [file, setfile] = useState(null);
-  const handleChange = (e) => {
-    if (e.target.name === 'hotel') {
-      sethotel(e.target.value);
-    }
-    if (e.target.name === 'address') {
-      setaddress(e.target.value);
-    }
-    if (e.target.name === 'location') {
-      setlocation(e.target.value);
-    }
-    if (e.target.name === 'price') {
-      setprice(e.target.value);
-    }
-    if (e.target.name === 'contact') {
-      setcontact(e.target.value);
-    }
-    if (e.target.name === 'rooms') {
-      setrooms(e.target.value);
-    }
-  };
-  const handlefile = (e) => {
-    const file=e.target.files[0];
-   
-
-     //console.log(file);
-  };
-  const submit = () => {
-   // console.log(this .state)
-    const hoteldata = {
-      hotel: hotel,
-      address: address,
-      location: location,
-      price: price,
-      contact: contact,
-      rooms: rooms, 
-    };
-   console.log(hoteldata);
-    axios.post('http://localhost:5000/hotel', hoteldata)
-       .then((response) => {
-     console.log(response);
-     });
-  };
-
+  const [img, setfile] = useState(null);*/
   
+    constructor(){
+      super();
+      this.state={
+        file:null
+      }
+    };
+   
+       
+   handlefile = (e) => {
+       this.setState({file:e.target.files[0]})
+  };
+   submit = () => {
+    var name=document.getElementById("hotel").value;
+    var address=document.getElementById("address").value;
+    var location=document.getElementById("location").value;
+    var price=document.getElementById("price").value;
+    var contact=document.getElementById("contact").value;
+    var rooms=document.getElementById("rooms").value;
+
+      const fd=new FormData();
+      fd.append('avatar',this.state.file);
+      fd.append('hotel',name);
+      fd.append('address',address);
+      fd.append('location',location);
+      fd.append('price',price);
+      fd.append('contact',contact);
+      fd.append('rooms',rooms);
+    axios.post('http://localhost:5000/hotel', fd)
+       .then((response) => {
+         alert("you have successfully registered hotel!!!!!");
+         console.log(response)
+     });
+     console.log(this.state)
+  };
+
+  render(){
     return (
       <Fragment>
         <section class='hr-body'>
@@ -67,9 +60,10 @@ const Booking = () =>  {
                   <input
                     type='text'
                     name='hotel'
+                    id='hotel'
                     className='inp'
                     placeholder='Name of Hotel'
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     required
                   ></input>
                 </div>
@@ -79,9 +73,10 @@ const Booking = () =>  {
                   <input
                     type='text'
                     name='address'
+                    id='address'
                     className='inp'
                     placeholder='Complete Address of Hotel'
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     required
                   ></input>
                 </div>
@@ -91,9 +86,10 @@ const Booking = () =>  {
                   <input
                     type='text'
                     name='location'
+                    id='location'
                     className='inp'
                     placeholder='Location'
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     required
                   ></input>
                 </div>
@@ -103,9 +99,10 @@ const Booking = () =>  {
                   <input
                     type='text'
                     name='price'
+                    id='price'
                     className='inp'
                     placeholder='Price'
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     required
                   ></input>
                 </div>
@@ -115,9 +112,10 @@ const Booking = () =>  {
                   <input
                     type='text'
                     name='contact'
+                    id='contact'
                     className='inp'
                     placeholder='Contact No.'
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     required
                   ></input>
                 </div>
@@ -127,9 +125,10 @@ const Booking = () =>  {
                   <input
                     type='text'
                     name='rooms'
+                    id='rooms'
                     className='inp'
                     placeholder='No. of Rooms available'
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     required
                   ></input>
                 </div>
@@ -142,7 +141,7 @@ const Booking = () =>  {
                     name='file'
                     className='inp'
                     placeholder='Uplaod Images '
-                    onChange={handlefile}
+                    onChange={this.handlefile}
                     required
                   ></input>
                 </div>
@@ -151,7 +150,7 @@ const Booking = () =>  {
                   type='button'
                   class='sub-btn'
                   value='Register'
-                  onClick={submit}
+                  onClick={this.submit}
                 ></input>
               </form>
             </div>
@@ -164,5 +163,5 @@ const Booking = () =>  {
       </Fragment>
     );
   }
-
+}
 export default Booking;
