@@ -34,10 +34,10 @@ router.get('/:location',(req,res,next)=>{
     })
 })
 
-//router.post('/',upload.single('avatar'),(req,res,next)=>{
-router.post('/',(req,res,next)=>{
+router.post('/',upload.single('avatar'),(req,res,next)=>{
+//router.post('/',(req,res,next)=>{
     //console.log(req.file);
-    const place=new hotel({
+   const place=new hotel({
         _id:new mongoose.Types.ObjectId(),
         hotelName: req.body.hotel,
     Address: req.body.address,
@@ -45,10 +45,12 @@ router.post('/',(req,res,next)=>{
     price:req.body.price,
     contact:req.body.contact,
     rooms:req.body.rooms,
-    //img_url:req.file.path
+    img_url:req.file.path
     });
-    place.save().then(result=>{
-        res.status(200).json(result);
+   place.save().then(result=>{
+        //res.status(200).json(result);
+        //console.log("here")
+        res.status(200).json(result)
     }).catch(err=>{
         res.status(500).json(err);
     })

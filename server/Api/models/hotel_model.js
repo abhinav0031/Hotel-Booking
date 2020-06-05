@@ -7,7 +7,7 @@ const hotelSchema=mongoose.Schema({
     price:{type:String,required:true},
     contact:{type:String,required:true},
     rooms:{type:String,required:true},
-    //img_url:{type:String,required:true}      
+    img_url:{type:String,required:true}      
 });
 
 

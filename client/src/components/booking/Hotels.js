@@ -25,11 +25,12 @@ export const Hotels = ({ match }) => {
         <h1 class='teal-text'> Hotels:</h1>
         <div class='row'>
           {hotels.map((hotel) => (
-            <HotelItems
+            <HotelItems key={hotel._id}
               name={hotel.hotelName}
               location={hotel.Address}
               price={hotel.price}
               contact={hotel.contact}
+              img_url={hotel.img_url}
             />
           ))}
         </div>
