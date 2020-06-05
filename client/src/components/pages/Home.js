@@ -111,7 +111,7 @@ export const Home = () => {
   return (
     <Fragment>
       {slidz}
-      <section
+      {/* <section
         id='search'
         class='section section-search teal darken-1 white-text center scrollspy'
       >
@@ -130,7 +130,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>  */}
 
       <section class='section section-icons grey lighten-4 center'>
         <div class='container'>

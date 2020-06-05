@@ -1,9 +1,11 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import AuthContext from '../../context/auth/authContext';
-
+import AlertContext from '../../context/alert/alertContext';
 const Login = (props) => {
   const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
   const { login, isAuthenticated } = authContext;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,19 +20,23 @@ const Login = (props) => {
   };
 
   const submit = () => {
-    const logindata = {
-      email: email,
-      password: password
-    };
-    axios
-      .post('http://localhost:5000/user/login', logindata)
-      .then((response) => {
-        localStorage.setItem('token', response.data.token);
-        //console.log(isAuthenticated);
-        login(email);
-        //console.log(isAuthenticated);
-        setLog('yes');
-      });
+    if (email === '' || password === '') {
+      setAlert('Please fill in all the fields', 'danger');
+    } else {
+      const logindata = {
+        email: email,
+        password: password
+      };
+      axios
+        .post('http://localhost:5000/user/login', logindata)
+        .then((response) => {
+          localStorage.setItem('token', response.data.token);
+          //console.log(isAuthenticated);
+          login(email);
+          //console.log(isAuthenticated);
+          setLog('yes');
+        });
+    }
     //const tz = localStorage.getItem('token');
 
     // props.history.push('/');
@@ -82,11 +88,6 @@ const Login = (props) => {
         <p class='flow-text'>HotelBooker &copy; 2020</p>
       </footer>
     </Fragment>
-    //  <div>
-    //    <input type="text"  placeholder="email" name="email" onChange={this.handleChange}/>
-    //    <input type="password" placeholder="password"  name="password" onChange={this.handleChange}/>
-    //    <button onClick={this.submit}  >submit </button>
-    //  </div>
   );
 };
 export default Login;
