@@ -19,7 +19,6 @@ router.post('/',auth,(req,res,next)=>{
    const order=new booking({
     _id:    new mongoose.Types.ObjectId(),
     user:   req.body.username,
-    user_id:req.body.user_id,
     email:  req.body.email,
     hotel:  req.body.hotelName,
     checkIn:req.body.inDate,

@@ -20,7 +20,7 @@ export const HotelItems = ({ name, location, price,contact,img_url }) => {
             <p class='teal-text'>
               <span class='black-text'>Contact No.:</span>
               {contact}
-            </p>
+            </p>     
           </div>
           <button class='btn teal bookbtn'>Book</button>
         </div>
