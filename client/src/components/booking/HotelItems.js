@@ -1,22 +1,30 @@
-import React, { Fragment, useState, useEffect,useContext } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import M from 'materialize-css';
+import { useHistory, Redirect } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
-import axios from 'axios'
-export const HotelItems = ({ name, location, price, contact, img_url }) => {
-  
+import axios from 'axios';
+export const HotelItems = ({
+  props,
+  name,
+  location,
+  price,
+  contact,
+  img_url
+}) => {
+  let history = useHistory();
   const authContext = useContext(AuthContext);
   const { email } = authContext;
   const [inDate, setIn] = useState('');
   const [outDate, setOut] = useState('');
 
-  const handleDate=(e)=>{
-    if(e.target.name==='checkin'){
-      setIn(e.target.value)
+  const handleDate = (e) => {
+    if (e.target.name === 'checkin') {
+      setIn(e.target.value);
     }
-    if(e.target.name==='checkout'){
-     setOut(e.target.value)
-   }
-}
+    if (e.target.name === 'checkout') {
+      setOut(e.target.value);
+    }
+  };
 
   useEffect(() => {
     var elems = document.querySelectorAll('.modal');
@@ -25,27 +33,28 @@ export const HotelItems = ({ name, location, price, contact, img_url }) => {
       inDuration: 255
     });
   }, []);
-  const booking=()=>{
+  const booking = () => {
     const bookingdata = {
-      email:email,
-    hotel: name,
-    location:location,
-    checkIn:inDate,
-    checkOut:outDate,
-    Amount:price
+      email: email,
+      hotel: name,
+      location: location,
+      checkIn: inDate,
+      checkOut: outDate,
+      Amount: price
     };
-    const token=localStorage.getItem('token')
-    console.log(token)
+    const token = localStorage.getItem('token');
+    console.log(token);
     axios
-    .post('http://localhost:5000/book', bookingdata,{
-      headers:{
-        "x-auth-token":token
-      }
-    })
-    .then((response) => {
-      console.log(response);
-    });
-  }
+      .post('http://localhost:5000/book', bookingdata, {
+        headers: {
+          'x-auth-token': token
+        }
+      })
+      .then((response) => {
+        console.log(response);
+      });
+    history.push('/');
+  };
   return (
     <Fragment>
       <div class='col s12 m4'>
@@ -65,7 +74,7 @@ export const HotelItems = ({ name, location, price, contact, img_url }) => {
             <p class='teal-text'>
               <span class='black-text'>Contact No.:</span>
               {contact}
-            </p>     
+            </p>
           </div>
           <a href='#checkIn-modal' class='btn teal bookbtn modal-trigger'>
             Book
@@ -79,18 +88,32 @@ export const HotelItems = ({ name, location, price, contact, img_url }) => {
           <p>Enter Checkin and Checkout</p>
           <form>
             <div class='input-field'>
-              <input type='text' id='checkIn' name='checkin' onChange={handleDate} />
+              <input
+                type='text'
+                id='checkIn'
+                name='checkin'
+                onChange={handleDate}
+              />
               <label for='checkIn'>Checkin</label>
             </div>
             <div class='input-field'>
-              <input type='text' id='checkOut' name='checkout' onChange={handleDate} />
+              <input
+                type='text'
+                id='checkOut'
+                name='checkout'
+                onChange={handleDate}
+              />
               <label for='checkOut'>Checkout</label>
             </div>
           </form>
         </div>
         <div class='modal-footer'>
-          <button type="button" class='modal-action modal-close btn teal' onClick={booking} >
-           Submit
+          <button
+            type='button'
+            class='modal-action modal-close btn teal'
+            onClick={booking}
+          >
+            Submit
           </button>
         </div>
       </div>
