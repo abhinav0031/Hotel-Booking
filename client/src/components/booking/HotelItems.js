@@ -1,14 +1,23 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useState, useEffect,useContext } from 'react';
 import M from 'materialize-css';
 import AuthContext from '../../context/auth/authContext';
+import axios from 'axios'
 export const HotelItems = ({ name, location, price, contact, img_url }) => {
-<<<<<<< HEAD
-   
-=======
+  
   const authContext = useContext(AuthContext);
   const { email } = authContext;
-  // console.log(email);
->>>>>>> upstream/master
+  const [inDate, setIn] = useState('');
+  const [outDate, setOut] = useState('');
+
+  const handleDate=(e)=>{
+    if(e.target.name==='checkin'){
+      setIn(e.target.value)
+    }
+    if(e.target.name==='checkout'){
+     setOut(e.target.value)
+   }
+}
+
   useEffect(() => {
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, {
@@ -17,7 +26,25 @@ export const HotelItems = ({ name, location, price, contact, img_url }) => {
     });
   }, []);
   const booking=()=>{
-
+    const bookingdata = {
+      email:email,
+    hotel: name,
+    location:location,
+    checkIn:inDate,
+    checkOut:outDate,
+    Amount:price
+    };
+    const token=localStorage.getItem('token')
+    console.log(token)
+    axios
+    .post('http://localhost:5000/book', bookingdata,{
+      headers:{
+        "x-auth-token":token
+      }
+    })
+    .then((response) => {
+      console.log(response);
+    });
   }
   return (
     <Fragment>
@@ -52,19 +79,19 @@ export const HotelItems = ({ name, location, price, contact, img_url }) => {
           <p>Enter Checkin and Checkout</p>
           <form>
             <div class='input-field'>
-              <input type='text' id='checkIn' />
+              <input type='text' id='checkIn' name='checkin' onChange={handleDate} />
               <label for='checkIn'>Checkin</label>
             </div>
             <div class='input-field'>
-              <input type='text' id='checkOut' />
+              <input type='text' id='checkOut' name='checkout' onChange={handleDate} />
               <label for='checkOut'>Checkout</label>
             </div>
           </form>
         </div>
         <div class='modal-footer'>
-          <a href='#!' class='modal-action modal-close btn teal'>
-            <i class='fa fa-lock'></i>submit
-          </a>
+          <button type="button" class='modal-action modal-close btn teal' onClick={booking} >
+           Submit
+          </button>
         </div>
       </div>
     </Fragment>
