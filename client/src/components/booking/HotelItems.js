@@ -1,6 +1,10 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import M from 'materialize-css';
+import AuthContext from '../../context/auth/authContext';
 export const HotelItems = ({ name, location, price, contact, img_url }) => {
+  const authContext = useContext(AuthContext);
+  const { email } = authContext;
+  // console.log(email);
   useEffect(() => {
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, {
