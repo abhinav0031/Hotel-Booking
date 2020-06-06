@@ -28,7 +28,6 @@ router.get('/:location',(req,res,next)=>{
     const location=req.params.location;
     hotel.find({location:location}).exec().then(result=>{
         res.status(200).json(result);
-        console.log(result);
     }).catch(err=>{
         res.status(500).json(err);
     })

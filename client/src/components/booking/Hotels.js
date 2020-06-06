@@ -11,6 +11,7 @@ export const Hotels = ({ match }) => {
     getHotels(hot);
     // setInput(hot);
   };
+
   useEffect(() => {
     const place = match.params.location;
 

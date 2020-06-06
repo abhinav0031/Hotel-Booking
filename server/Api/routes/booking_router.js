@@ -3,7 +3,15 @@ const router=express.Router();
 const booking=require('../models/booking_model');
 const mongoose=require('mongoose');
 const auth=require('../middleware/check-auth')
+var nodemailer = require('nodemailer');
 
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'globetrotterschitkara@gmail.com',
+    pass: '1@globetrotterHotel'
+  }
+});
 /// get the orders made by a perticular user
 router.get('/mybooking/:userid',auth,(req,res,next)=>{
     const  user=req.params.userid;
@@ -15,20 +23,38 @@ router.get('/mybooking/:userid',auth,(req,res,next)=>{
 })
 
 // make the orders
-router.post('/',auth,(req,res,next)=>{
-   const order=new booking({
+router.post('/', auth,(req,res,next)=>{
+   const book=new booking({
     _id:    new mongoose.Types.ObjectId(),
-    user:   req.body.username,
-    user_id:req.body.user_id,
     email:  req.body.email,
-    hotel:  req.body.hotelName,
-    checkIn:req.body.inDate,
-    checkOut:req.body.outDate,
-    Amount:req.body.Bill
+    hotel:  req.body.hotel,
+    location:req.body.location,
+    checkIn:req.body.checkIn,
+    checkOut:req.body.checkOut,
+    Amount:req.body.Amount
     });
-    order.save()
+    var mailOptions = {
+        from: 'globetrotterschitkara@gmail.com',
+        to: req.body.email,
+        subject: 'successfully Booked a hotel using Globetrotters platform',
+        text: `Dear Customer,
+
+        Thank you for being our valued customers. We are grateful for the pleasure of serving you and meeting your printing needs.
+        
+        We wish you a beautiful Thanksgiving and a joyous year's end.
+        
+        Warm wishes,`
+      };
+    book.save()
     .then(result=>{
         res.status(200).json(result);
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
     })
     .catch(err=>{
         res.status(500).json({error:err})

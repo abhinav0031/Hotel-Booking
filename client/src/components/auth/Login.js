@@ -31,7 +31,7 @@ const Login = (props) => {
         .post('http://localhost:5000/user/login', logindata)
         .then((response) => {
           localStorage.setItem('token', response.data.token);
-          //console.log(isAuthenticated);
+          console.log(response.data.token);
           login(email);
           //console.log(isAuthenticated);
           setLog('yes');
