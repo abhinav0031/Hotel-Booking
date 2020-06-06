@@ -49,7 +49,7 @@ class Booking extends React.Component {
 
   render(){
     return (
-      <Fragment>
+      <Fragment class='reg'>
         <section class='hr-body'>
           <div>
             <div class='main'>
