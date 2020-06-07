@@ -33,6 +33,7 @@ router.post('/', auth,(req,res,next)=>{
     checkOut:req.body.checkOut,
     Amount:req.body.Amount
     });
+    console.log(req.body.checkIn)
     var mailOptions = {
         from: 'globetrotterschitkara@gmail.com',
         to: req.body.email,
