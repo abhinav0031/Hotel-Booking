@@ -45,13 +45,8 @@ class Booking extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <Fragment>
         <div class='hr-body'>
-=======
-      <Fragment class='reg'>
-        <section class='hr-body'>
->>>>>>> 4435e12adcddd6f285f212c4aba96ac3a807e418
           <div>
             <div class='main'>
               <header>Register your Hotel</header>
