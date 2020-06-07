@@ -89,21 +89,23 @@ export const HotelItems = ({
           <form>
             <div class='input-field'>
               <input
-                type='text'
-                id='checkIn'
+                type='date'
+               id='checkIn'
                 name='checkin'
+                //placeholder="DD/MM/YYYY"
                 onChange={handleDate}
               />
-              <label for='checkIn'>Checkin</label>
+              <label for='checkIn'></label>
             </div>
             <div class='input-field'>
               <input
-                type='text'
+                type='date'
                 id='checkOut'
                 name='checkout'
+                //placeholder="DD/MM/YYYY"
                 onChange={handleDate}
               />
-              <label for='checkOut'>Checkout</label>
+              <label for='checkOut'> </label>
             </div>
           </form>
         </div>

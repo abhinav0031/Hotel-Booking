@@ -138,21 +138,11 @@ router.post('/register', (req, res, next) => {
 });
 
 /// delete account route
-router.delete('/:userId', (req, res, next) => {
-  const id = req.params.userId;
-  user
-    .deleteOne({ _id: id })
-    .exec()
-    .then((result) => {
-      console.log(result);
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
+router.get('/details/:token', (req, res, next) => {
+  const t=req.params.token;
+  
+      res.status(200).json(JSON.parse(atob(t.split('.')[1]))); 
+  
 });
 
 /// update password route
