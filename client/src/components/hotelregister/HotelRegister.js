@@ -1,56 +1,52 @@
-import React,{ Fragment, useState, useContext, useEffect } from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 
-
 class Booking extends React.Component {
-  
- /*const [hotel, sethotel] = useState('');
+  /*const [hotel, sethotel] = useState('');
   const [address, setaddress] = useState('');
   const [location, setlocation] = useState('');
   const [price, setprice] = useState('');
   const [contact, setcontact] = useState('');
   const [rooms, setrooms] = useState('');
   const [img, setfile] = useState(null);*/
-  
-    constructor(){
-      super();
-      this.state={
-        file:null
-      }
+
+  constructor() {
+    super();
+    this.state = {
+      file: null
     };
-   
-       
-   handlefile = (e) => {
-       this.setState({file:e.target.files[0]})
-  };
-   submit = () => {
-    var name=document.getElementById("hotel").value;
-    var address=document.getElementById("address").value;
-    var location=document.getElementById("location").value;
-    var price=document.getElementById("price").value;
-    var contact=document.getElementById("contact").value;
-    var rooms=document.getElementById("rooms").value;
+  }
 
-      const fd=new FormData();
-      fd.append('avatar',this.state.file);
-      fd.append('hotel',name);
-      fd.append('address',address);
-      fd.append('location',location);
-      fd.append('price',price);
-      fd.append('contact',contact);
-      fd.append('rooms',rooms);
-    axios.post('http://localhost:5000/hotel', fd)
-       .then((response) => {
-         alert("you have successfully registered hotel!!!!!");
-         console.log(response)
-     });
-     console.log(this.state)
+  handlefile = (e) => {
+    this.setState({ file: e.target.files[0] });
+  };
+  submit = () => {
+    var name = document.getElementById('hotel').value;
+    var address = document.getElementById('address').value;
+    var location = document.getElementById('location').value;
+    var price = document.getElementById('price').value;
+    var contact = document.getElementById('contact').value;
+    var rooms = document.getElementById('rooms').value;
+
+    const fd = new FormData();
+    fd.append('avatar', this.state.file);
+    fd.append('hotel', name);
+    fd.append('address', address);
+    fd.append('location', location);
+    fd.append('price', price);
+    fd.append('contact', contact);
+    fd.append('rooms', rooms);
+    axios.post('http://localhost:5000/hotel', fd).then((response) => {
+      alert('you have successfully registered hotel!!!!!');
+      console.log(response);
+    });
+    console.log(this.state);
   };
 
-  render(){
+  render() {
     return (
       <Fragment>
-        <section class='hr-body'>
+        <div class='hr-body'>
           <div>
             <div class='main'>
               <header>Register your Hotel</header>
@@ -155,7 +151,7 @@ class Booking extends React.Component {
               </form>
             </div>
           </div>
-        </section>
+        </div>
 
         <footer class='section teal darken-2 white-text center'>
           <p class='flow-text'>HotelBooker &copy; 2020</p>

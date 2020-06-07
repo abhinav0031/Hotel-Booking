@@ -80,7 +80,9 @@
 .hr-body {
   opacity: 10;
   background-image: url('./components/hotelregister/h.jpg');
-  background-color: #555;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
 }
 .main {
   width: 500px;
