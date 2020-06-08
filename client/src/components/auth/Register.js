@@ -22,7 +22,7 @@ export const Register = (props) => {
   const submit = (e) => {
     e.preventDefault();
     if (uname == '' || email == '' || password == '') {
-      setAlert('fill all the fields', 'danger');
+      alert('fill all the required details!!')
     } else {
       const logindata = {
         name: uname,
@@ -34,6 +34,8 @@ export const Register = (props) => {
         .post('http://localhost:5000/user/register', logindata)
         .then((response) => {
           alert(response.data.message);
+        },(err)=>{
+          alert('please enter data correctly!!!!!!!!!!!!!')
         });
       props.history.push('/login');
     }

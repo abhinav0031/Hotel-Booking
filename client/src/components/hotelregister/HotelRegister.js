@@ -39,6 +39,8 @@ class Booking extends React.Component {
     axios.post('http://localhost:5000/hotel', fd).then((response) => {
       alert('you have successfully registered hotel!!!!!');
       console.log(response);
+    },(err)=>{
+      alert('you can left any field empty!!!!!!!!!!!!!')
     });
     console.log(this.state);
   };

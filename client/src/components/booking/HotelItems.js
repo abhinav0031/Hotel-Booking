@@ -16,7 +16,7 @@ export const HotelItems = ({
   const { email } = authContext;
   const [inDate, setIn] = useState('');
   const [outDate, setOut] = useState('');
-
+  const [book,setbook]=useState('');
   const handleDate = (e) => {
     if (e.target.name === 'checkin') {
       setIn(e.target.value);
@@ -52,8 +52,10 @@ export const HotelItems = ({
       })
       .then((response) => {
         console.log(response);
+        history.push('/booking');
+      },(err)=>{
+        alert('please enter data correctly!!!!!!!!!!!!!')
       });
-    history.push('/');
   };
   return (
     <Fragment>
@@ -68,7 +70,7 @@ export const HotelItems = ({
               <span class='black-text'>Address:</span> {location}
             </p>
             <p class='teal-text'>
-              <span class='black-text'>Price:</span>
+              <span class='black-text'>Price/Room:</span>
               {price}
             </p>
             <p class='teal-text'>

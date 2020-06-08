@@ -101,11 +101,13 @@ export const Home = () => {
     };
     axios.post('http://localhost:5000/query', querydata).then((response) => {
       alert('Successfully submitted query!!!!!');
-      console.log(response);
+      console.log(response.status);
       setName('');
       setPhone('');
       setEmail('');
       setMsg('');
+    },(err)=>{
+      alert('please enter data correctly!!!!!!!!!!!!!')
     });
   };
   return (
