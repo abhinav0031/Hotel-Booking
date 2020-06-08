@@ -62,7 +62,7 @@ export const HotelItems = ({
       <div class='col s12 m4'>
         <div class='card'>
           <div class='card-image'>
-            <img src={'http://localhost:5000/' + img_url} alt='' />
+            <img src={'http://localhost:5000/' + img_url} alt='' height="300px" width="100px"/>
           </div>
           <div class='card-content'>
             <span class='card-title black-text'>{name}</span>

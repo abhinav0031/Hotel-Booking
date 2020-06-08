@@ -37,7 +37,7 @@ router.post('/', auth,(req,res,next)=>{
     var mailOptions = {
         from: 'globetrotterschitkara@gmail.com',
         to: req.body.email,
-        subject: 'successfully Booked a hotel using Globetrotters platform',
+        subject: 'successfully Booked a room at '+req.body.hotel+' using Globetrotters platform',
         text: `Dear Customer,
 
         Thank you for being our valued customers. We are grateful for the pleasure of serving you and meeting your printing needs.
