@@ -35,6 +35,8 @@ const Login = (props) => {
           login(email);
           //console.log(isAuthenticated);
           setLog('yes');
+        },(err)=>{
+          alert('please enter data correctly!!!!!!!!!!!!!')
         });
     }
     //const tz = localStorage.getItem('token');

@@ -34,6 +34,8 @@ export const Register = (props) => {
         .post('http://localhost:5000/user/register', logindata)
         .then((response) => {
           alert(response.data.message);
+        },(err)=>{
+          alert('please enter data correctly!!!!!!!!!!!!!')
         });
       props.history.push('/login');
     }

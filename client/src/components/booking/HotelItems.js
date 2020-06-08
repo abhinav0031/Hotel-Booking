@@ -52,8 +52,10 @@ export const HotelItems = ({
       })
       .then((response) => {
         console.log(response);
+      },(err)=>{
+        alert('please enter data correctly!!!!!!!!!!!!!')
       });
-    history.push('/');
+    history.push('/booking');
   };
   return (
     <Fragment>
