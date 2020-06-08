@@ -21,7 +21,7 @@ const Login = (props) => {
 
   const submit = () => {
     if (email === '' || password === '') {
-      setAlert('Please fill in all the fields', 'danger');
+      alert('You are expected to fill all the details of the form!!')
     } else {
       const logindata = {
         email: email,
@@ -33,12 +33,11 @@ const Login = (props) => {
           localStorage.setItem('token', response.data.token);
           console.log(response.data.token);
           login(email);
-          //console.log(isAuthenticated);
           setLog('yes');
         },(err)=>{
           alert('please enter data correctly!!!!!!!!!!!!!')
         });
-    }
+      }
     //const tz = localStorage.getItem('token');
 
     // props.history.push('/');
